@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recipe Scaler</title>
+  <meta name="description" content="Rescale a recipe to any number of servings.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="bg" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="sheen"></span>
+  </div>
+  <header>
+    <h1>Recipe Scaler</h1>
+    <p>Rescale any recipe to the number of servings you need.</p>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="card" aria-labelledby="formTitle">
+      <h2 id="formTitle">Your recipe</h2>
+      <form id="recipeForm" novalidate>
+        <label for="dishName">Dish name</label>
+        <input type="text" id="dishName" autocomplete="off">
+
+        <label for="originalServings">Servings the recipe makes</label>
+        <input type="number" id="originalServings" step="any" inputmode="decimal">
+
+        <label for="desiredServings">Servings wanted</label>
+        <input type="number" id="desiredServings" step="any" inputmode="decimal">
+
+        <fieldset>
+          <legend>Ingredients</legend>
+          <div class="ingredient-row">
+            <div>
+              <label for="ing1Name">Ingredient 1 name</label>
+              <input type="text" id="ing1Name" autocomplete="off">
+            </div>
+            <div>
+              <label for="ing1Amount">Ingredient 1 amount</label>
+              <input type="number" id="ing1Amount" step="any" inputmode="decimal">
+            </div>
+          </div>
+          <div class="ingredient-row">
+            <div>
+              <label for="ing2Name">Ingredient 2 name</label>
+              <input type="text" id="ing2Name" autocomplete="off">
+            </div>
+            <div>
+              <label for="ing2Amount">Ingredient 2 amount</label>
+              <input type="number" id="ing2Amount" step="any" inputmode="decimal">
+            </div>
+          </div>
+          <div class="ingredient-row">
+            <div>
+              <label for="ing3Name">Ingredient 3 name</label>
+              <input type="text" id="ing3Name" autocomplete="off">
+            </div>
+            <div>
+              <label for="ing3Amount">Ingredient 3 amount</label>
+              <input type="number" id="ing3Amount" step="any" inputmode="decimal">
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="button-row">
+          <button type="button" id="scaleBtn">Scale Recipe</button>
+          <button type="button" id="resetBtn">Reset</button>
+          <button type="button" id="exampleBtn">Load example</button>
+        </div>
+      </form>
+      <div id="message" role="alert" hidden></div>
+    </section>
+
+    <section class="card" id="resultCard" aria-labelledby="resultTitle" hidden>
+      <h2 id="resultTitle">Scaled recipe</h2>
+      <div id="result" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer>
+    <p>Amounts are scaled in your browser. Nothing is sent anywhere.</p>
+  </footer>
+  <script src="./script.js" defer></script>
+</body>
+</html>
